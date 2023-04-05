@@ -50,6 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: yokutype_production
-  username: yokutype
-  password: <%= ENV["YOKUTYPE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['JAWSDB_URL']&.sub('mysql://', 'mysql2://') %>
