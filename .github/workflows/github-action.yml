@@ -18,7 +18,13 @@ jobs:
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
-
+    env:
+      TZ: Asia/Tokyo
+      DB_NAME: yokutype_test
+      DB_USERNAME: root
+      DB_PASSWORD: password
+      DB_HOST: 127.0.0.1
+      RAILS_ENV: test
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -46,7 +52,7 @@ jobs:
 
       - name: Database create and migrate
         run: |
-          cp config/database.yml.ci config/database.yml
+
           bundle exec rails db:create RAILS_ENV=test
           bundle exec rails db:migrate RAILS_ENV=test
 
