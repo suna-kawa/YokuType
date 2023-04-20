@@ -33,6 +33,9 @@ gem "jbuilder"
 # devise
 gem "devise"
 
+# Environment Variable Settings
+gem "dotenv-rails"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
