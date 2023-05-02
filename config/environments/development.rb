@@ -51,7 +51,7 @@ Rails.application.configure do
     :domain => 'smtp.gmail.com',
     :user_name => ENV['GMAIL_ADDRESS'],
     :password => ENV['GMAIL_PASSWORD'],
-    :authentication => 'login'
+    :authentication => 'login',
   }
 
   # Print deprecation notices to the Rails logger.

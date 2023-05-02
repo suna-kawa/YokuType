@@ -14,7 +14,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'b290bb2883acdff96f60c0e89f64eb1858506915f14a14870b714930a03a73377c1d382f212f2fde4b692b392f129235f0dec852e740453686d45ba19dc8e874'
+  # config.secret_key = 'b290bb2883acdff96f60c0e89f64eb1858506915f14a1487
+  # 0b714930a03a73377c1d382f212f2fde4b692b392f129235f0dec852e740453686d45ba19dc8e874'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -127,7 +128,8 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '501665e0fc15cfc91d7abbb6ea92cf9d3cc25f5635d422bd9c3314e1486ba26d0e7a317a957e876730b68e7417c6467527cc3ff441a6cadf0cd6b6104f91f9a4'
+  # config.pepper = '501665e0fc15cfc91d7abbb6ea92cf9d3cc25f5635d422bd9c3314e1486ba2
+  # 6d0e7a317a957e876730b68e7417c6467527cc3ff441a6cadf0cd6b6104f91f9a4'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -245,7 +247,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -311,4 +313,7 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  config.omniauth :twitter2, ENV['TWITTER_CONSUMER_KEY'], ENV['TWITTER_CONSUMER_SECRET'],
+scope: 'users.read', callback_path: "#{ENV['DOMAIN_NAME']}/users/auth/twitter2/callback"
 end
