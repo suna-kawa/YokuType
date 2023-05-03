@@ -83,9 +83,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: install dependencies
-        run: gem install bundler
-        run: bundle install
-        
+        run: |
+          gem install bundler
+          bundle install
+
       - name: precompile assets
         run: bundle exec rails assets:precompile
 
