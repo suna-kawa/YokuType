@@ -82,6 +82,10 @@ jobs:
       - name: check out code
         uses: actions/checkout@v2
 
+      - name: install dependencies
+        run: gem install bundler
+        run: bundle install
+        
       - name: precompile assets
         run: bundle exec rails assets:precompile
 
