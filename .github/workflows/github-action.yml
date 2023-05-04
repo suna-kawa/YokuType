@@ -82,14 +82,6 @@ jobs:
       - name: check out code
         uses: actions/checkout@v2
 
-      - name: install dependencies
-        run: |
-          gem install bundler
-          bundle install
-
-      - name: precompile assets
-        run: bundle exec rails assets:precompile
-
       - name: deploy
         uses: akhileshns/heroku-deploy@v3.12.13
         with:
