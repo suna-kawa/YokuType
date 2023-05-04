@@ -41,7 +41,7 @@ gem "omniauth"
 gem "omniauth-twitter2"
 gem "omniauth-rails_csrf_protection"
 
-# cssbundling-rails
+# tailwind css production assets:precompile
 gem "cssbundling-rails"
 
 # Use Redis adapter to run Action Cable in production
