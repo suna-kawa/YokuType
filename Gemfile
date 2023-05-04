@@ -41,6 +41,9 @@ gem "omniauth"
 gem "omniauth-twitter2"
 gem "omniauth-rails_csrf_protection"
 
+# cssbundling-rails
+gem "cssbundling-rails"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
