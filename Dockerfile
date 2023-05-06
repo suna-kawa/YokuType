@@ -12,7 +12,7 @@ COPY . /yokutype
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
-RUN rails assets:precompile
+# RUN rails assets:precompile
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
