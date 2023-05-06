@@ -3,7 +3,7 @@ FROM ruby:3.1
 RUN mkdir /yokutype
 WORKDIR /yokutype
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && apt-get install -y nodejs
-RUN npm install yarn
+RUN npm install --global yarn
 COPY Gemfile /yokutype/Gemfile
 COPY Gemfile.lock /yokutype/Gemfile.lock
 RUN bundle install
