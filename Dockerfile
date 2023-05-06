@@ -5,7 +5,6 @@ WORKDIR /yokutype
 ENV LANG=C.UTF-8 \
     RAILS_ENV=production \
     RACK_ENV=production \
-    BUNDLE_DEPLOYMENT=true \
     BUNDLE_WITHOUT=development:test
 COPY Gemfile /yokutype/Gemfile
 COPY Gemfile.lock /yokutype/Gemfile.lock
@@ -14,7 +13,7 @@ COPY . /yokutype
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
-# RUN bundle exec rails assets:precompile
+RUN bundle exec rails assets:precompile
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
