@@ -1,11 +1,10 @@
-FROM ruby:3.1
+FROM ruby:3.1.4
 
 RUN mkdir /yokutype
 WORKDIR /yokutype
 ENV LANG=C.UTF-8 \
     RAILS_ENV=production \
-    RACK_ENV=production \
-    BUNDLE_WITHOUT=development:test
+    RACK_ENV=production
 COPY Gemfile /yokutype/Gemfile
 COPY Gemfile.lock /yokutype/Gemfile.lock
 RUN bundle install
