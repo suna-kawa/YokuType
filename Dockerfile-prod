@@ -2,11 +2,6 @@ FROM ruby:3.1
 
 RUN mkdir /yokutype
 WORKDIR /yokutype
-ENV LANG=C.UTF-8 \
-    RAILS_ENV=production \
-    RACK_ENV=production \
-    BUNDLE_DEPLOYMENT=true \
-    BUNDLE_WITHOUT=development:test
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && apt-get install -y nodejs
 RUN npm install --global yarn
 COPY Gemfile /yokutype/Gemfile
