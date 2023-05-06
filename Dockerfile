@@ -7,8 +7,6 @@ ENV LANG=C.UTF-8 \
     RACK_ENV=production \
     BUNDLE_DEPLOYMENT=true \
     BUNDLE_WITHOUT=development:test
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && apt-get install -y nodejs
-RUN npm install --global yarn
 COPY Gemfile /yokutype/Gemfile
 COPY Gemfile.lock /yokutype/Gemfile.lock
 RUN bundle install
