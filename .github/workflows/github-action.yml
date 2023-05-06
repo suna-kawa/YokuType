@@ -23,6 +23,7 @@ jobs:
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
     env:
       TZ: Asia/Tokyo
+      RAILS_MATER_KEY: ${{secrets.RAILS_MATER_KEY}}
       DB_NAME: yokutype_test
       DB_USERNAME: root
       DB_PASSWORD: password
@@ -55,7 +56,6 @@ jobs:
 
       - name: Database create and migrate
         run: |
-
           bundle exec rails db:create RAILS_ENV=test
           bundle exec rails db:migrate RAILS_ENV=test
 
@@ -79,9 +79,14 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.13
+      - name: check out code
+        uses: actions/checkout@v2
+
+      - name: deploy
+        uses: akhileshns/heroku-deploy@v3.12.13
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
