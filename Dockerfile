@@ -7,9 +7,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
 
 RUN mkdir /yokutype
 WORKDIR /yokutype
-ENV LANG=C.UTF-8 \
-    RAILS_ENV=production \
-    RACK_ENV=production
 COPY Gemfile /yokutype/Gemfile
 COPY Gemfile.lock /yokutype/Gemfile.lock
 RUN bundle install
@@ -20,4 +17,4 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bin/rails", "server", "-b", "0.0.0.0"]
