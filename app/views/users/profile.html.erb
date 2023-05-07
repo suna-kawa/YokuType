@@ -1,0 +1,16 @@
+<div class="">プロフィール編集</div>
+<%= form_with model: @user do |f| %>
+  <%= f.label :name, "名前", class: "" %>
+  <%= f.text_field :name, class: "" %>
+
+  <%= f.label :image, "アイコン画像", class: "" %>
+  <%= f.file_field :image, class: "" %>
+
+  <%= f.label :introduction, "自己紹介", class: "" %>
+  <%= f.text_area :introduction, class: "", size: "20x10" %>
+
+  <div class="">
+  <%= f.submit "保存", class: "" %>
+  <%= link_to "キャンセル", :back, class: "" %>
+  </div>
+<% end %>
