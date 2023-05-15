@@ -3,6 +3,9 @@
   <%= f.label :name, "名前", class: "" %>
   <%= f.text_field :name, class: "" %>
 
+  <%= f.label :prefecture, "都道府県", class: "" %>
+  <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"} ) %>
+
   <%= f.label :image, "アイコン画像", class: "" %>
   <%= f.file_field :image, class: "" %>
 

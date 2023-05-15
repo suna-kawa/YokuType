@@ -91,3 +91,4 @@ group :test do
 end
 
 gem 'aws-sdk-s3'
+gem 'active_hash'
