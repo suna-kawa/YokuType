@@ -6,6 +6,15 @@
   <%= f.label :prefecture, "都道府県", class: "" %>
   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"} ) %>
 
+  <%= f.label :age, "年齢", class: "" %>
+  <%= f.collection_select(:age_id, Age.all, :id, :name, {include_blank: "---"} ) %>
+
+  <%= f.label :gender, "性別", class: "" %>
+  <%= f.collection_select(:gender_id, Gender.all, :id, :type, {include_blank: "---"} ) %>
+
+  <%= f.label :job, "職業", class: "" %>
+  <%= f.collection_select(:job_id, Job.all, :id, :name, {include_blank: "---"} ) %>
+
   <%= f.label :image, "アイコン画像", class: "" %>
   <%= f.file_field :image, class: "" %>
 
