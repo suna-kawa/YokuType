@@ -15,8 +15,8 @@
   <%= f.label :job, "職業", class: "" %>
   <%= f.collection_select(:job_id, Job.all, :id, :name, {include_blank: "---"} ) %>
 
-  <%= f.label :image, "アイコン画像", class: "" %>
-  <%= f.file_field :image, class: "" %>
+  <%= f.label :avatar, "アイコン画像", class: "" %>
+  <%= f.file_field :avatar, class: "" %>
 
   <%= f.label :introduction, "自己紹介", class: "" %>
   <%= f.text_area :introduction, class: "", size: "20x10" %>

@@ -5,6 +5,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g yarn
 
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends imagemagick libvips42
+
 RUN mkdir /yokutype
 WORKDIR /yokutype
 COPY Gemfile /yokutype/Gemfile
