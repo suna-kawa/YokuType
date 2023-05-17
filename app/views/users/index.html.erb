@@ -1,10 +1,11 @@
 <div>
-  <h1 class="font-bold text-4xl">Users#index</h1>
+  <h1 class="font-bold text-4xl">YokuType</h1>
   <p>Find me in app/views/users/index.html.erb</p>
   <% if user_signed_in? %>
   <%= link_to 'アカウント編集', edit_user_registration_path %>
   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
   <%= link_to 'プロフィール編集', users_profile_path %>
+  <%= link_to 'マイページ', users_mypage_path %>
   <% else %>
   <%= link_to 'サインアップ', new_user_registration_path %>
   <%= link_to 'ログイン', new_user_session_path %>

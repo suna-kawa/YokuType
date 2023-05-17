@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :prefecture
-  belongs_to :age
-  belongs_to :gender
-  belongs_to :job
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :age
+  belongs_to_active_hash :gender
+  belongs_to_active_hash :job
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
