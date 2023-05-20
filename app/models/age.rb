@@ -1,5 +1,4 @@
 class Age < ActiveHash::Base
-
   self.data = [
     { id: 1, name: '18歳未満' },
     { id: 2, name: '18歳' },
@@ -44,7 +43,6 @@ class Age < ActiveHash::Base
     { id: 41, name: '57歳' },
     { id: 42, name: '58歳' },
     { id: 43, name: '59歳' },
-    { id: 44, name: '60歳以上' }
+    { id: 44, name: '60歳以上' },
   ]
-
 end

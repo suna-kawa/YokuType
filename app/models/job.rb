@@ -1,5 +1,4 @@
 class Job < ActiveHash::Base
-
   self.data = [
     { id: 1, name: 'エンジニア' },
     { id: 2, name: 'デザイナー' },
@@ -23,7 +22,6 @@ class Job < ActiveHash::Base
     { id: 20, name: '接客業' },
     { id: 21, name: '学生' },
     { id: 22, name: '会社員' },
-    { id: 23, name: 'その他' }
+    { id: 23, name: 'その他' },
   ]
-
 end

@@ -10,13 +10,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:twitter2]
-  
 
-  
   def thumbnail
-    return self.avatar.variant(resize: '300x300').processed
+    avatar.variant(resize: '300x300').processed
   end
-
 
   def self.find_for_oauth(auth)
     user = User.find_by(uid: auth.uid, provider: auth.provider)
