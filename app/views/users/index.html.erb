@@ -1,6 +1,5 @@
 <div>
   <h1 class="font-bold text-4xl">YokuType</h1>
-  <p>Find me in app/views/users/index.html.erb</p>
   <% if user_signed_in? %>
   <%= link_to 'アカウント編集', edit_user_registration_path %>
   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
