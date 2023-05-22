@@ -1,8 +1,8 @@
 <div class="text-4xl">マイページ</div>
 <%= @user.name %>
-<%= @user.age.name %>
-<%= @user.gender.type %>
-<%= @user.prefecture.name %>
-<%= @user.job.name %>
+<%= @user.age_id.present? ? @user.age.name : '' %>
+<%= @user.gender_id.present? ? @user.gender.type : '' %>
+<%= @user.prefecture_id.present? ? @user.prefecture.name : '' %>
+<%= @user.job_id.present? ? @user.job.name : '' %>
 <%= @user.introduction %>
 <%= image_tag(@user.thumbnail) %>
