@@ -13,13 +13,13 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:twitter2]
 
   def thumbnail
-    return self.avatar.variant(resize: '100x100').processed
+    avatar.variant(resize: '100x100').processed
   end
 
   def default_avatar
-    if !self.avatar.attached?
-      self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'noimage.png')),
-      filename: 'default-avatar.png', content_type: 'image/png')
+    if !avatar.attached?
+      avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'noimage.png')),
+                    filename: 'default-avatar.png', content_type: 'image/png')
     end
   end
 
