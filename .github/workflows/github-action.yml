@@ -83,7 +83,7 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
       - name: check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: deploy
         uses: akhileshns/heroku-deploy@v3.12.13
