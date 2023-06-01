@@ -1,4 +1,4 @@
-name: Run rspec, rubocop, Deploy to Heroku
+name: Run rspec, rubocop
 
 on:
   push:
@@ -76,21 +76,4 @@ jobs:
 
       - name: Run rubocop
         run: bundle exec rubocop --require rubocop-airbnb
-
-  deploy:
-    runs-on: ubuntu-latest
-    env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-    steps:
-      - name: check out code
-        uses: actions/checkout@v2
-
-      - name: deploy
-        uses: akhileshns/heroku-deploy@v3.12.13
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
-          usedocker: true
-
 

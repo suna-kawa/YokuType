@@ -1,9 +1,27 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_one_attached :avatar
+  before_create :default_avatar
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture, optional: true
+  belongs_to_active_hash :age, optional: true
+  belongs_to_active_hash :gender, optional: true
+  belongs_to_active_hash :job, optional: true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:twitter2]
+
+  def thumbnail
+    avatar.variant(resize: '100x100').processed
+  end
+
+  def default_avatar
+    if !avatar.attached?
+      avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'noimage.png')),
+                    filename: 'default-avatar.png', content_type: 'image/png')
+    end
+  end
 
   def self.find_for_oauth(auth)
     user = User.find_by(uid: auth.uid, provider: auth.provider)
